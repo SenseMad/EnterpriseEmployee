@@ -1,0 +1,30 @@
+﻿<Window x:Class="EnterpriseEmployee.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:tabControl="clr-namespace:EnterpriseEmployee.Style.TabControl"
+        xmlns:listOfEmployees="clr-namespace:EnterpriseEmployee.Windows.ListOfEmployees"
+        
+        mc:Ignorable="d"
+        Title="Тесты" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Effect>
+        <BlurEffect Radius="0"/>
+    </Window.Effect>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <listOfEmployees:ListEmployeesPanel/>
+        </Grid>
+
+        <Grid Grid.Row="0" x:Name="WindowsMouseLeft">
+            <tabControl:TabControlStyle x:Name="myTabControlStyle"/>
+        </Grid>
+    </Grid>
+</Window>

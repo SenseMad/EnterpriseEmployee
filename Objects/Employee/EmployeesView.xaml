@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="EnterpriseEmployee.Objects.Employee.EmployeesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="570" VerticalAlignment="Top">
+
+    <Grid Height="45" Margin="0,5,0,0">
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.25" BlurRadius="10" ShadowDepth="2" Direction="270"/>
+        </Grid.Effect>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="435"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="White" CornerRadius="3" Grid.ColumnSpan="2"/>
+
+        <TextBlock x:Name="FIO_Text" Grid.Column="0" Text="ФИО" FontSize="17" VerticalAlignment="Center" Margin="15,0" FontFamily="Segoe UI Semibold"/>
+        <Button x:Name="ButtonEmployee" Grid.Column="1" Width="100" Content="ПОДРОБНЕЕ" Style="{StaticResource ButtonBlue}" Click="ButtonEmployee_Click"/>
+    </Grid>
+</UserControl>

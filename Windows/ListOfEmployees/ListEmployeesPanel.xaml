@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="EnterpriseEmployee.Windows.ListOfEmployees.ListEmployeesPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             xmlns:informationEmployeePanel="clr-namespace:EnterpriseEmployee.Windows.InformationEmployee"
+             xmlns:addEmployee="clr-namespace:EnterpriseEmployee.Windows.AddEmployee"
+             
+             xmlns:object="clr-namespace:EnterpriseEmployee.Objects.Employee"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="415" d:DesignWidth="800">
+    <Grid>
+        <Border Background="#F0F0F0" CornerRadius="0,0,5,5"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Список сотрудников-->
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" FocusVisualStyle="{x:Null}">
+                <Grid Margin="15,10,15,15">
+                    <object:EmployeesListView x:Name="Employees"/>
+                </Grid>
+            </ScrollViewer>
+
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,15,0,15">
+                    <!--Поиск сотрудников-->
+                    <StackPanel Orientation="Vertical">
+                        <!--Поле поиска сотрудников-->
+                        <TextBox x:Name="TextSearchEmployees" Height="25" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="TextSearchEmployees_TextChanged"/>
+
+                        <!--Выбор пола сотрудников-->
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <RadioButton x:Name="AllGender" Content="Все" IsChecked="True" Style="{StaticResource RadioButtonStyle}" Checked="AllGender_Checked" FocusVisualStyle="{x:Null}"/>
+                            <RadioButton x:Name="MaleGender" Content="Муж." Margin="20,0,0,0" Style="{StaticResource RadioButtonStyle}" Checked="MaleGender_Checked" FocusVisualStyle="{x:Null}"/>
+                            <RadioButton x:Name="FemaleGender" Content="Жен." Margin="20,0,0,0" Style="{StaticResource RadioButtonStyle}" Checked="FemaleGender_Checked" FocusVisualStyle="{x:Null}"/>
+                        </StackPanel>
+
+                        <!--Кнопка поиска сотрудников-->
+                        <Button x:Name="ButtonSearchEmployee" Content="Поиск сотрудника" Style="{StaticResource ButtonGreen}" Click="ButtonSearchEmployee_Click"/>
+                    </StackPanel>
+
+                    <Rectangle Fill="Gray" Height="1" Margin="0,15,0,10"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <!--Кнопка добавить сотрудника-->
+                        <Button x:Name="ButtonAddEmployee" Content="Новый сотрудник" Style="{StaticResource ButtonGreen}" Margin="0,0,0,5" Click="ButtonAddEmployee_Click"/>
+
+                        <Rectangle Fill="Gray" Height="1" Margin="0,5,0,5"/>
+
+                        <!--Кнопка показать работающих сотрудников-->
+                        <Button x:Name="ButtonWorkingEmployees" Content="Работающие сотрудники" Style="{StaticResource ButtonBlue}" Margin="0,5,0,5" Click="ButtonWorkingEmployees_Click"/>
+                        <!--Кнопка показать сотрудников в ожидании-->
+                        <Button x:Name="ButtonEmployeesPending" Content="Сотрудники в ожидании" Style="{StaticResource ButtonBlue}" Margin="0,0,0,5" Click="ButtonEmployeesPending_Click"/>
+                        <!--Кнопка показать уволенных сотрудников-->
+                        <Button x:Name="ButtonShowDismissedEmployees" Content="Уволенные сотрудники" Style="{StaticResource ButtonBlue}" Margin="0,0,0,5" Click="ButtonShowDismissedEmployees_Click"/>
+
+                        <Rectangle Fill="Gray" Height="1" Margin="0,5,0,10"/>
+
+                        <!--Кнопка удалить сотрудника-->
+                        <Button x:Name="ButtonPrintedReport" Content="Распечатать отчет" Style="{StaticResource ButtonGreen}" Click="ButtonPrintedReport_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <informationEmployeePanel:InformationEmployeePanel x:Name="myInformationEmployeePanel" Visibility="Collapsed"/>
+        <addEmployee:AddEmployeePanel x:Name="myAddEmployee" Visibility="Collapsed"/>
+    </Grid>
+</UserControl>

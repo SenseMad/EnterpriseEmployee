@@ -1,0 +1,362 @@
+﻿<UserControl x:Class="EnterpriseEmployee.Windows.InformationEmployee.InformationEmployeePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="415" d:DesignWidth="800">
+
+    <Grid>
+        <Border Background="#F0F0F0" CornerRadius="0,0,5,5"/>
+        <Grid>
+            <TabControl x:Name="TabControl" Background="Transparent" BorderThickness="0">
+                <TabItem Header="Общие сведения о сотруднике" Style="{StaticResource WhiteTabItemStyle}" FocusVisualStyle="{x:Null}">
+                    <Grid>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="220" Margin="10,10,0,50">
+                            <!--Фамилия-->
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="* Фамилия" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="SurName" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="SurName_PreviewTextInput" TextChanged="SurName_TextChanged"/>
+                            </StackPanel>
+                            <!--Имя-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Имя" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Name" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Name_PreviewTextInput" TextChanged="Name_TextChanged"/>
+                            </StackPanel>
+                            <!--Отчество-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Отчество" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Patronymic" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Patronymic_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Пол-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Пол" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <ComboBox x:Name="Gender" Height="22" FontSize="12" FontFamily="{StaticResource FontFamily}" FocusVisualStyle="{x:Null}">
+                                    <ComboBoxItem IsSelected="True" Content="Мужской" FocusVisualStyle="{x:Null}"/>
+                                    <ComboBoxItem Content="Женский" FocusVisualStyle="{x:Null}"/>
+                                </ComboBox>
+                            </StackPanel>
+                            <!--Адрес проживания-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Адрес проживания" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="PlaceOfBirth" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="PlaceOfBirth_TextChanged"/>
+                            </StackPanel>
+                            <!--Дата рождения-->
+                            <StackPanel Orientation="Vertical" Margin="0,9,0,0">
+                                <TextBlock Text="* Дата рождения" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <DatePicker x:Name="DateOfBirth" BorderThickness="0" PreviewTextInput="DateOfBirth_PreviewTextInput" SelectedDateChanged="DateOfBirth_SelectedDateChanged">
+                                    <DatePicker.Resources>
+                                        <Style TargetType="{x:Type DatePickerTextBox}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <TextBox Height="22" FontSize="15" IsReadOnly="True" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DatePicker.Resources>
+                                </DatePicker>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="220" Margin="0,10,0,50">
+                            <!--Полных лет-->
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                                <TextBlock Text="* Полных лет" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="FullYears" Height="22" IsReadOnly="True" FontSize="15" MaxLength="3" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="FullYears_PreviewTextInput" TextChanged="FullYears_TextChanged"/>
+                            </StackPanel>
+                            <!--Мобильный телефон-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Мобильный телефон" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Mobile_Phone" Height="22" FontSize="15" MaxLength="11" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Mobile_Phone_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Мобильный телефон-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Домашний телефон" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Home_Phone" Height="22" FontSize="15" MaxLength="5" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Home_Phone_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Рабочий телефон-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Рабочий телефон" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Office_Phone" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Office_Phone_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Email-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Email" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Email" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                            </StackPanel>
+                            <!--ИНН-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* ИНН" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="INN" Height="22" FontSize="15" MaxLength="12" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="INN_PreviewTextInput" TextChanged="INN_TextChanged"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="220" Margin="0,10,10,50">
+                            <!--№ Мед. полиса-->
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                                <TextBlock Text="№ Мед. полиса" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="MedicalPolicy" Height="22" FontSize="15" MaxLength="16" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="MedicalPolicy_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Национальность-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Национальность" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Nationality" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Nationality_PreviewTextInput" TextChanged="Nationality_TextChanged"/>
+                            </StackPanel>
+                            <!--Гражданство-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Гражданство" Height="22" TextAlignment="Center" FontSize="15" Foreground="{StaticResource DimGrayBrush}" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Citizenship" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Citizenship_PreviewTextInput" TextChanged="Citizenship_TextChanged"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--Кнопки-->
+                        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                            <Button x:Name="Button_Edit_Employee_Information" Content="Редактировать" Height="35" FontSize="20" Style="{StaticResource ButtonBlue}" Visibility="Collapsed" Click="Button_Edit_Employee_Information_Click"/>
+                            <Button x:Name="Button_Apply_Employee_Information" Content="Сохранить" FontSize="20" Style="{StaticResource ButtonGreen}" Click="Button_Apply_Employee_Information_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Паспортные данные" Style="{StaticResource WhiteTabItemStyle}" FocusVisualStyle="{x:Null}">
+                    <Grid>
+                        <!--Паспорт-->
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="220" Margin="120,10,0,50">
+                            <TextBlock Text="Паспорт" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="22" FontFamily="{StaticResource FontFamily}"/>
+
+                            <Rectangle Fill="{StaticResource DimGrayBrush}" Height="1" Width="125" Margin="0,2,0,0"/>
+                            
+                            <!--Серия-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Серия" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Passport_Series" Height="22" FontSize="15" MaxLength="4" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Passport_Series_PreviewTextInput" TextChanged="Passport_Series_TextChanged"/>
+                            </StackPanel>
+                            <!--Номер-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Номер" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Passport_Number" Height="22" FontSize="15" MaxLength="6" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Passport_Number_PreviewTextInput" TextChanged="Passport_Number_TextChanged"/>
+                            </StackPanel>
+                            <!--Дата выдачи-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Дата выдачи" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <DatePicker x:Name="Date_Of_Issue" BorderThickness="0" PreviewTextInput="Date_Of_Issue_PreviewTextInput">
+                                    <DatePicker.Resources>
+                                        <Style TargetType="{x:Type DatePickerTextBox}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <TextBox Height="22" FontSize="15" IsReadOnly="True" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DatePicker.Resources>
+                                </DatePicker>
+                            </StackPanel>
+                            <!--Выдавший орган-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Выдавший орган" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Passport_Issued" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Passport_Issued_PreviewTextInput"  TextChanged="Passport_Issued_TextChanged"/>
+                            </StackPanel>
+                            <!--Код подразделения-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Код подразделения" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Division_Code" Height="22" FontSize="15" MaxLength="6" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Division_Code_PreviewTextInput" TextChanged="Division_Code_TextChanged"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!--Место регистрации-->
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="220" Margin="0,10,120,50">
+                            <TextBlock Text="Место регистрации" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="22" FontFamily="{StaticResource FontFamily}"/>
+
+                            <Rectangle Fill="{StaticResource DimGrayBrush}" Height="1" Margin="0,2,0,0"/>
+
+                            <!--Город-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Город" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="City" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="City_TextChanged"/>
+                            </StackPanel>
+                            <!--Улица-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Улица" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Street" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Street_TextChanged"/>
+                            </StackPanel>
+                            <!--Дом-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Дом" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="House" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="House_TextChanged"/>
+                            </StackPanel>
+                            <!--Квартира-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Квартира" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Flat" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Flat_TextChanged"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--Кнопки-->
+                        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                            <Button x:Name="Button_Edit_Employee_Passport" Content="Редактировать" Height="35" FontSize="20" Style="{StaticResource ButtonBlue}" Visibility="Collapsed" Click="Button_Edit_Employee_Passport_Click"/>
+                            <Button x:Name="Button_Apply_Employee_Passport" HorizontalAlignment="Right" Content="Сохранить" FontSize="20" Style="{StaticResource ButtonGreen}" Click="Button_Apply_Employee_Passport_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Образование" Style="{StaticResource WhiteTabItemStyle}" FocusVisualStyle="{x:Null}">
+                    <Grid>
+                        <!--Образование-->
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="350" Margin="0,10,0,50">
+                            <!--Наименование документа об образовании-->
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="* Наименование документа об образовании" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Name_Document_On_Education" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Name_Document_On_Education_PreviewTextInput" TextChanged="Name_Document_On_Education_TextChanged"/>
+                            </StackPanel>
+                            <!--Тип образования-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Тип образования" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Type_Education" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Type_Education_PreviewTextInput" TextChanged="Type_Education_TextChanged"/>
+                            </StackPanel>
+                            <!--Наименование учебного заведения-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Наименование учебного заведения" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Educational_Institution" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Educational_Institution_PreviewTextInput" TextChanged="Educational_Institution_TextChanged"/>
+                            </StackPanel>
+                            <!--Специальность-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Специальность" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Specialty" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Specialty_TextChanged"/>
+                            </StackPanel>
+                            <!--Квалификация-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Квалификация" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Qualification" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Qualification_TextChanged"/>
+                            </StackPanel>
+                            <!--Серия/Номер диплома-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical" Width="160" HorizontalAlignment="Left">
+                                        <TextBlock Text="Серия диплома *" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                        <TextBox x:Name="Diplom_Series" Height="22" MaxLength="6" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Diplom_Series_PreviewTextInput"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Width="160" Margin="30,0,0,0">
+                                        <TextBlock Text="№ Диплома *" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                        <TextBox x:Name="Diplom_Number" Height="22" MaxLength="7" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Diplom_Number_PreviewTextInput"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--Кнопки-->
+                        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                            <Button x:Name="Button_Edit_Education"  Content="Редактировать" Height="35" FontSize="20" Style="{StaticResource ButtonBlue}" Visibility="Collapsed" Click="Button_Edit_Education_Click"/>
+                            <Button x:Name="Button_Apply_Education" HorizontalAlignment="Right" Content="Сохранить" FontSize="20" Style="{StaticResource ButtonGreen}" Click="Button_Apply_Education_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Трудовая деятельность" Style="{StaticResource WhiteTabItemStyle}" FocusVisualStyle="{x:Null}">
+                    <Grid>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="220" Margin="0,10,300,50">
+                            <!--Дата приема на работу-->
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="* Дата приема на работу" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <DatePicker x:Name="Date_Of_Employment" BorderThickness="0" PreviewTextInput="Date_Of_Employment_PreviewTextInput">
+                                    <DatePicker.Resources>
+                                        <Style TargetType="{x:Type DatePickerTextBox}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <TextBox Height="22" FontSize="15" IsReadOnly="True" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DatePicker.Resources>
+                                </DatePicker>
+                            </StackPanel>
+                            <!--Должность-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Должность" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <ComboBox x:Name="Position" Height="22" FontSize="12" FontFamily="{StaticResource FontFamily}" SelectionChanged="Position_SelectionChanged" FocusVisualStyle="{x:Null}"/>
+                            </StackPanel>
+                            <!--Оклад-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Оклад" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Salary" Height="22" FontSize="15" IsReadOnly="True" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Salary_TextChanged"/>
+                            </StackPanel>
+                            <!--Надбавка(%)-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Надбавка(%)" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Allowance" Height="22" FontSize="15" MaxLength="3" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Allowance_TextChanged" PreviewTextInput="Allowance_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Надбавка(%)-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Оклад с надбавкой" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Salary_Allowance" Height="22" FontSize="15" IsReadOnly="True" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="220" Margin="300,10,0,50">
+                            <!--№ Договора-->
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="* № Договора" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Contract_Number" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Contract_Number_PreviewTextInput" TextChanged="Contract_Number_TextChanged"/>
+                            </StackPanel>
+                            <!--Дата договора-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Дата договора" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <DatePicker x:Name="Date_Of_Contract" BorderThickness="0" PreviewTextInput="Date_Of_Contract_PreviewTextInput">
+                                    <DatePicker.Resources>
+                                        <Style TargetType="{x:Type DatePickerTextBox}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <TextBox Height="22" FontSize="15" IsReadOnly="True" Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, StringFormat=dd.MM.yyyy}" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DatePicker.Resources>
+                                </DatePicker>
+                            </StackPanel>
+                            <!--Тип места работы-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Тип места работы" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Type_Of_Workplace" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Type_Of_Workplace_TextChanged"/>
+                            </StackPanel>
+                            <!--Стаж работы-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="Стаж работы" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <TextBox x:Name="Work_Experience" Height="22" FontSize="15" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" PreviewTextInput="Work_Experience_PreviewTextInput"/>
+                            </StackPanel>
+                            <!--Пол-->
+                            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                <TextBlock Text="* Статус" Height="22" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="15" FontFamily="{StaticResource FontFamily}"/>
+                                <ComboBox x:Name="Status" Height="22" FontSize="12" FontFamily="{StaticResource FontFamily}" FocusVisualStyle="{x:Null}">
+                                    <ComboBoxItem IsSelected="True" Content="Работающий" FocusVisualStyle="{x:Null}"/>
+                                    <ComboBoxItem Content="В ожидании" FocusVisualStyle="{x:Null}"/>
+                                    <ComboBoxItem Content="Уволен" FocusVisualStyle="{x:Null}"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!--Кнопки Трудовой договор/Уволить-->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10">
+                            <Button x:Name="EmploymentContract" Content="Трудовой договор" Width="125" FontSize="13" Style="{StaticResource ButtonGreen}" Margin="0,0,25,0" Click="EmploymentContract_Click"/>
+                            <Button x:Name="Dismiss" Width="125" FontSize="15" Content="Уволить" Style="{StaticResource ButtonRed}" Click="Dismiss_Click"/>
+                            <Button x:Name="ButtonInformation" Height="35" Width="125" FontSize="15" Content="Информация" Style="{StaticResource ButtonBlue}" Visibility="Collapsed" Click="ButtonInformation_Click"/>
+                        </StackPanel>
+
+                        <!--Кнопки-->
+                        <Grid VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                            <Button x:Name="Button_Edit_Labour_Activity" Content="Редактировать" Height="35" FontSize="20" Style="{StaticResource ButtonBlue}" Visibility="Collapsed" Click="Button_Edit_Labour_Activity_Click"/>
+                            <Button x:Name="Button_Apply_Labour_Activity" HorizontalAlignment="Right" Content="Сохранить" FontSize="20" Style="{StaticResource ButtonGreen}" Click="Button_Apply_Labour_Activity_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+            <!--Кнопки-->
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">
+                <Button x:Name="ButtonBack" HorizontalAlignment="Left" Content="Назад" Style="{StaticResource ButtonRed}" Click="ButtonBack_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

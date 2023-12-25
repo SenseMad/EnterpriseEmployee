@@ -1,0 +1,16 @@
+﻿<Application x:Class="EnterpriseEmployee.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Windows/PasswordWindows/LoginProgram.xaml"> <!--Windows/PasswordWindows/LoginProgram     MainWindow-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/StyleElement.xaml"/>
+                
+                <ResourceDictionary Source="Style/Button/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Style/TextBox/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="Style/TabControl/WhiteTabControlStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

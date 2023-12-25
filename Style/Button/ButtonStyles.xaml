@@ -1,0 +1,162 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="ButtonClose" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="Button_Close" CornerRadius="5" Background="#FFB0B0B0">
+                            <Image Source="pack://application:,,,/Resourses/Icon/Close.png" Stretch="Fill" Margin="6"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Button_Close" Property="Background" Value="{StaticResource RedBrush}"/>
+                            <Setter TargetName="Button_Close" Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Button_Close" Property="Background" Value="{StaticResource RedBrush}"/>
+                            <Setter TargetName="Button_Close" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonMinimize" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+ 
+                    <Grid Background="Transparent">
+                        <Border x:Name="Button_Minimize" CornerRadius="5" Background="#FFB0B0B0">
+                            <Image Source="pack://application:,,,/Resourses/Icon/Minimize.png" Stretch="Fill" Margin="5"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Button_Minimize" Property="Background" Value="{StaticResource GrayBrush}"/>
+                            <Setter TargetName="Button_Minimize" Property="Opacity" Value="0.9"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Button_Minimize" Property="Background" Value="{StaticResource GrayBrush}"/>
+                            <Setter TargetName="Button_Minimize" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonGreen" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="150"/>
+
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="Button_Green" CornerRadius="3" Background="{StaticResource GrayBrush}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Button_Green" Property="Background" Value="{StaticResource GreenBrush}"/>
+                            <Setter TargetName="Button_Green" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Button_Green" Property="Background" Value="{StaticResource GreenBrush}"/>
+                            <Setter TargetName="Button_Green" Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonBlue" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="Button_Blue" CornerRadius="3" Background="{StaticResource GrayBrush}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Button_Blue" Property="Background" Value="{StaticResource BlueBrush}"/>
+                            <Setter TargetName="Button_Blue" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Button_Blue" Property="Background" Value="{StaticResource BlueBrush}"/>
+                            <Setter TargetName="Button_Blue" Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Button_Blue" Property="Background" Value="{StaticResource BlueBrush}"/>
+                            <Setter TargetName="Button_Blue" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ButtonRed" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="135"/>
+
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Button_Red" CornerRadius="3" Background="{StaticResource GrayBrush}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Button_Red" Property="Background" Value="{StaticResource RedBrush}"/>
+                            <Setter TargetName="Button_Red" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Button_Red" Property="Background" Value="{StaticResource RedBrush}"/>
+                            <Setter TargetName="Button_Red" Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

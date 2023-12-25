@@ -1,0 +1,52 @@
+﻿<Window x:Class="EnterpriseEmployee.Windows.PasswordWindows.LoginProgram"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="LoginProgram" Height="250" Width="400" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Border CornerRadius="0,0,5,5" Background="#F0F0F0" Grid.RowSpan="2"/>
+
+            <Grid Margin="35,15,35,25">
+                <!--Логин-->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Логин" Height="25" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="20" FontFamily="{StaticResource FontFamily}" Margin="0,0,0,5"/>
+                    <TextBox x:Name="LoginText" VerticalContentAlignment="Top" Height="30" FontSize="20" Foreground="{StaticResource BlackBrush}" Style="{StaticResource TextBoxStyle}" TextChanged="Login_TextChanged"/>
+                </StackPanel>
+
+                <!--Пароль-->
+                <StackPanel Orientation="Vertical" Margin="0,70,0,0">
+                    <TextBlock Text="Пароль" Height="25" TextAlignment="Center" Foreground="{StaticResource DimGrayBrush}" FontSize="20" FontFamily="{StaticResource FontFamily}" Margin="0,0,0,5"/>
+                    <PasswordBox x:Name="PasswordText" PasswordChar="*" VerticalContentAlignment="Top" Height="30" FontSize="20" Foreground="{StaticResource BlackBrush}" Style="{StaticResource PasswordBoxStyle}" PasswordChanged="PasswordText_PasswordChanged"/>
+                    <TextBlock x:Name="InvalidLoginAndPassword" Text="* Неправильный логин или пароль" Height="15" TextAlignment="Center" Foreground="{StaticResource RedBrush}" FontSize="10" FontFamily="{StaticResource FontFamily}" Visibility="Collapsed"/>
+                </StackPanel>
+            </Grid>
+            
+            <!--Войти-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15">
+                <Button x:Name="Button_Enter" Content="Войти" Height="35" Width="135" FontSize="20" Style="{StaticResource ButtonGreen}" Click="Button_Enter_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="0" x:Name="WindowsMouseLeft">
+            <Border CornerRadius="5,5,0,0" Background="{StaticResource WhiteBrush}">
+                <Border.Effect>
+                    <DropShadowEffect Color="#191919" Opacity="0.2" BlurRadius="7" ShadowDepth="2" Direction="270"/>
+                </Border.Effect>
+            </Border>
+
+            <TextBlock x:Name="TitleText" Text="Вход в программу" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="{StaticResource GrayBrush}" FontSize="20" FontFamily="{StaticResource FontFamily}" Margin="15,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="22" Margin="0,0,5,0">
+                <Button x:Name="Close" Style="{StaticResource ButtonClose}" Click="Close_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

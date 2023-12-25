@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--Цвета-->
+    <SolidColorBrush x:Key="GrayBrush" Color="Gray"/>
+    <SolidColorBrush x:Key="DimGrayBrush" Color="DimGray"/>
+    <SolidColorBrush x:Key="RedBrush" Color="#F5564A"/>
+    <SolidColorBrush x:Key="BlueBrush" Color="#0099FF"/>
+    <SolidColorBrush x:Key="GreenBrush" Color="#70B83D"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="White"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="Black"/>
+
+    <!--Шрифт-->
+    <FontFamily x:Key="FontFamily">Segoe UI Semibold</FontFamily>
+</ResourceDictionary>
